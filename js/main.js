@@ -1,6 +1,11 @@
 var App = {
   models: {},
   controllers: {},
-  views: {}
+  views: {},
+
+  init: function() {
+    new App.controllers.Nav();
+    Backbone.history.start();
+  }
 };
 
