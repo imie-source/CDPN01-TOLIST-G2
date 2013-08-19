@@ -85,5 +85,19 @@ var App = {
 	ctx.arc(170,20,10,0,Math.PI*2,false); 
 	ctx.stroke();
 	ctx.fill();
+
+	// Aile droite
+	ctx.beginPath();              
+	ctx.lineWidth="3";
+	ctx.fillStyle="green"; 
+	ctx.moveTo(240,40);
+	ctx.bezierCurveTo(200,70, 300, 80, 280, 70);
+	ctx.fill();
+
+	ctx.beginPath();            
+	ctx.lineWidth="3";
+	ctx.moveTo(240,40);
+	ctx.quadraticCurveTo(280,20,280,70);
+	ctx.fill();
   }
 };
