@@ -4,6 +4,41 @@
   <meta charset="UTF-8" />
   <title></title>
   <link rel="stylesheet" media="screen" href="css/bootstrap.css" />
+</head>
+<body>
+  <canvas id="logo" width="350" height="150">
+    Un logo en canvas :p
+  </canvas>
+
+  <div class="container home">
+    <h1>Contacts</h1>
+
+    <button id="addContact" >Nouveau contact</button>
+
+    <table>
+      <thead>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Tel.</th>
+        <th>Anniversaire</th>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+
+  </div>
+  
+  <div class="container form">
+	<form id="form" action="" method="post">
+		<input name="firstName" placeholder="Nom"/>
+		<input name="lastName" placeholder="Prénom"/>
+		<input name="phoneNumber" placeholder="Téléphone"/>
+		<input name="birthday" placeholder="Anniversaire"/>
+		<input id="submitForm" type="submit" value="+"/>
+	</form>
+  </div>
+
   <script type="text/javascript" src="js/lib/jquery.js"></script>
   <script type="text/javascript" src="js/lib/bootstrap.js"></script>
   <script type="text/javascript" src="js/lib/bootstrap.js"></script>
@@ -13,11 +48,8 @@
   <script type="text/javascript" src="js/models/user.js"></script>
   <script type="text/javascript" src="js/controllers/nav.js"></script>
   <script type="text/javascript" src="js/views/home.js"></script>
-</head>
-<body>
-  <div class="container">
-  </div>
   <script type="text/javascript">
     $(App.init);
+    $(App.logoInit);
   </script>
 </body>
