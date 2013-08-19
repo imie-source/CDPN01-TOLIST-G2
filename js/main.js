@@ -56,6 +56,35 @@ var App = {
 
     // Smiley :)
 
+
+	// Aile droite
+	ctx.beginPath();              
+	ctx.lineWidth="3";
+	ctx.fillStyle="green"; 
+	ctx.moveTo(240,40);
+	ctx.bezierCurveTo(200,70, 300, 80, 280, 70);
+	ctx.fill();
+
+	ctx.beginPath();            
+	ctx.lineWidth="3";
+	ctx.moveTo(240,40);
+	ctx.quadraticCurveTo(280,20,280,70);
+	ctx.fill();
+
+	// Aile gauche
+	ctx.beginPath();              
+	ctx.lineWidth="3";
+	ctx.fillStyle="green"; 
+	ctx.moveTo(160,40);
+	ctx.bezierCurveTo(120,70, 100, 80, 120, 70);
+	ctx.fill();
+
+	ctx.beginPath();            
+	ctx.lineWidth="3";
+	ctx.moveTo(160,40);
+	ctx.quadraticCurveTo(120,20,120,70);
+	ctx.fill();
+
 	// Visage
 	ctx.beginPath();
 	ctx.arc(200,50,40,0,Math.PI*2,true);
@@ -84,20 +113,6 @@ var App = {
 	ctx.beginPath();
 	ctx.arc(170,20,10,0,Math.PI*2,false); 
 	ctx.stroke();
-	ctx.fill();
-
-	// Aile droite
-	ctx.beginPath();              
-	ctx.lineWidth="3";
-	ctx.fillStyle="green"; 
-	ctx.moveTo(240,40);
-	ctx.bezierCurveTo(200,70, 300, 80, 280, 70);
-	ctx.fill();
-
-	ctx.beginPath();            
-	ctx.lineWidth="3";
-	ctx.moveTo(240,40);
-	ctx.quadraticCurveTo(280,20,280,70);
 	ctx.fill();
   }
 };
