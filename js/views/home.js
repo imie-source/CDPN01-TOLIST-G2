@@ -10,3 +10,15 @@ App.views.Home = Backbone.View.extend({
 		window.location.hash = "contact/new";
 	}
 });
+
+App.views.Form = Backbone.View.extend({
+	
+	el : '.form',
+
+	events: {
+		"click #submitForm" : "submitForm" 
+	},
+
+	submitForm : function(){
+	}
+});
