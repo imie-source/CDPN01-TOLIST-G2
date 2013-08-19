@@ -20,6 +20,5 @@ App.views.Form = Backbone.View.extend({
 	},
 
 	submitForm : function(){
-		window.location.hash = "contact/new";
 	}
 });
