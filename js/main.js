@@ -10,3 +10,10 @@ var App = {
     Backbone.history.start();
   }
 };
+
+Backbone.sync = function(method, model) {
+  (new App.collections.Users()).fetch({ success: function(users) {
+    users.add(model);
+    localStorage.setItem("users", JSON.stringify(users));
+  }});
+}
