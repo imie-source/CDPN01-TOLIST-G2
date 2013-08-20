@@ -6,9 +6,9 @@ App.collections.Users = Backbone.Collection.extend({
   model: App.models.User,
   fetch: function(options) {
     var users = JSON.parse(localStorage.getItem("users")) || [];
-    _.map(users, function(u) {
+    users = _.map(users, function(u) {
       return new App.models.User(u);
     });
-    options.success(users);
+    options.success(new App.collections.Users(users));
   }
 });
