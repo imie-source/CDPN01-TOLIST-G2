@@ -6,8 +6,12 @@ var App = {
 
   init: function() {
     new App.controllers.Nav();
-    new App.views.Home();
     Backbone.history.start();
+  },
+
+  changePage: function(view) {
+    $(".container").hide();
+    $(".container." + view).show();
   }
 };
 
