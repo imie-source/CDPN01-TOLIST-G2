@@ -13,6 +13,7 @@
  	this.lineWidth = 0;
  	this.fillStyle = "black";
  	this.animate = 0;
+ 	this.animateMax = 10;
  }
 
  function refresh()
@@ -29,14 +30,8 @@
 	ctx.moveTo(wing.x, wing.y);
 
 	var top = wing.y;
-	if(wing.animate == 4)
-		top = wing.y - 20;
-	else if(wing.animate == 3)
-		top = wing.y - 15;
-	else if(wing.animate == 2)
-		top = wing.y - 10;
-	else if(wing.animate == 1)
-		top = wing.y - 5;
+	if(wing.animate!=0)
+		top = wing.y - (30*(wing.animate/wing.animateMax));
 
 	if(wing.side=="right")
 		ctx.bezierCurveTo((wing.x-40), (top+30) , (wing.x+60), (top+40), (wing.x+40), (top+30));
@@ -157,7 +152,7 @@
   initWings();
 
   setInterval(function(){
-  	if(leftWing.animate == 4)
+  	if(leftWing.animate == leftWing.animateMax)
   		goingTo = "bot";
   	else if(leftWing.animate == 0 && goingTo == "bot")
   		goingTo = "top";
@@ -173,4 +168,4 @@
 		rightWing.animate--;
 	}
   	refresh();
-  }, 70);
+  }, 50);
