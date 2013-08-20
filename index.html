@@ -30,12 +30,12 @@
   </div>
   
   <div class="container form">
-	<form id="form" action="" method="post">
-		<input name="firstName" placeholder="Nom"/>
-		<input name="lastName" placeholder="Prénom"/>
-		<input name="phoneNumber" placeholder="Téléphone"/>
-		<input name="birthday" placeholder="Anniversaire"/>
-		<input id="submitForm" type="submit" value="+"/>
+	<form id="userForm" action="" method="post">
+		<input type="text" name="firstName" placeholder="Nom"/></br>
+		<input type="text" name="lastName" placeholder="Prénom"/></br>
+		<input type="tel" name="phoneNumber" placeholder="Téléphone"/></br>
+		<input type="date" name="birthday" placeholder="Anniversaire"/></br>
+		<input type="submit" id="submitForm" value="Valider"/>
 	</form>
   </div>
 
@@ -44,12 +44,13 @@
   <script type="text/javascript" src="js/lib/bootstrap.js"></script>
   <script type="text/javascript" src="js/lib/underscore.js"></script>
   <script type="text/javascript" src="js/lib/backbone.js"></script>
+  <script type="text/javascript" src="js/lib/logocanvas.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/models/user.js"></script>
   <script type="text/javascript" src="js/controllers/nav.js"></script>
   <script type="text/javascript" src="js/views/home.js"></script>
   <script type="text/javascript">
     $(App.init);
-    $(App.logoInit);
+    logoInit();
   </script>
 </body>

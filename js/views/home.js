@@ -20,5 +20,6 @@ App.views.Form = Backbone.View.extend({
 	},
 
 	submitForm : function(){
+	alert("ajouter");
 	}
 });
