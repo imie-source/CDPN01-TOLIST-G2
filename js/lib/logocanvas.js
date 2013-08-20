@@ -1,37 +1,87 @@
+ // Pour garder tous les elements du canvas
+ var leftWing;
+ var rightWing;
+ var canvas = document.getElementById("logo");
+ var ctx = canvas.getContext("2d");
+ var goingTo = "top";
+
+ function Wing(side)
+ {
+ 	this.x = 0;
+ 	this.y = 0;
+ 	this.side = side;
+ 	this.lineWidth = 0;
+ 	this.fillStyle = "black";
+ 	this.animate = 0;
+ }
+
+ function refresh()
+ {
+ 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+ 	logoInit();
+ }
+
+ function drawWing(wing)
+ {
+	ctx.beginPath();
+	ctx.lineWidth= wing.lineWidth;
+	ctx.fillStyle= wing.fillStyle; 
+	ctx.moveTo(wing.x, wing.y);
+
+	var top = wing.y;
+	if(wing.animate == 4)
+		top = wing.y - 20;
+	else if(wing.animate == 3)
+		top = wing.y - 15;
+	else if(wing.animate == 2)
+		top = wing.y - 10;
+	else if(wing.animate == 1)
+		top = wing.y - 5;
+
+	if(wing.side=="right")
+		ctx.bezierCurveTo((wing.x-40), (top+30) , (wing.x+60), (top+40), (wing.x+40), (top+30));
+	else
+		ctx.bezierCurveTo((wing.x+40), (top+30) , (wing.x-60), (top+40), (wing.x-40), (top+30));
+	
+	ctx.fill();
+
+	ctx.beginPath();            
+	ctx.lineWidth= wing.lineWidth;
+	ctx.moveTo(wing.x, wing.y);
+	if(wing.side=="right")
+		ctx.quadraticCurveTo((wing.x+40), (top-10) , (wing.x+40), (top+30));
+	else
+		ctx.quadraticCurveTo((wing.x-40), (top-10) , (wing.x-40), (top+30));
+	ctx.fill();
+ }
+
+ function initWings()
+ {
+ 	// aile droite
+	rightWing = new Wing("right");
+	rightWing.x = 240;
+	rightWing.y = 40;
+	rightWing.lineWidth = 3;
+	rightWing.fillStyle = "green";
+
+	// aile gauche
+	leftWing = new Wing("left");
+	leftWing.x = 160;
+	leftWing.y = 40;
+	leftWing.lineWidth = 3;
+	leftWing.fillStyle = "green";
+ }
+
  function logoInit() {
-    var el = document.getElementById("logo");
-    var ctx = el.getContext("2d");
 
     // Smiley :)
 
-
 	// Aile droite
-	ctx.beginPath();              
-	ctx.lineWidth="3";
-	ctx.fillStyle="green"; 
-	ctx.moveTo(240,40);
-	ctx.bezierCurveTo(200,70, 300, 80, 280, 70);
-	ctx.fill();
-
-	ctx.beginPath();            
-	ctx.lineWidth="3";
-	ctx.moveTo(240,40);
-	ctx.quadraticCurveTo(280,20,280,70);
-	ctx.fill();
+	drawWing(rightWing);
 
 	// Aile gauche
-	ctx.beginPath();              
-	ctx.lineWidth="3";
-	ctx.fillStyle="green"; 
-	ctx.moveTo(160,40);
-	ctx.bezierCurveTo(200,70, 100, 80, 120, 70);
-	ctx.fill();
 
-	ctx.beginPath();            
-	ctx.lineWidth="3";
-	ctx.moveTo(160,40);
-	ctx.quadraticCurveTo(120,20,120,70);
-	ctx.fill();
+	drawWing(leftWing);
 
 	// Visage
 	ctx.beginPath();
@@ -103,3 +153,24 @@
     ctx.strokeStyle = "#321564";
     ctx.stroke();
   }
+
+  initWings();
+
+  setInterval(function(){
+  	if(leftWing.animate == 4)
+  		goingTo = "bot";
+  	else if(leftWing.animate == 0 && goingTo == "bot")
+  		goingTo = "top";
+
+  	if(goingTo=="top")
+  	{
+	  	leftWing.animate++;
+	  	rightWing.animate++;
+	}
+	else
+	{
+		leftWing.animate--;
+		rightWing.animate--;
+	}
+  	refresh();
+  }, 70);
