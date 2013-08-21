@@ -16,10 +16,10 @@ App.views.Form = Backbone.View.extend({
 	el : '.form',
 
 	events: {
-		"click #submitForm" : "submitForm" 
+		"click #submitContact" : "submitContact" 
 	},
 
-	submitForm : function(){
-	alert("ajouter");
+	submitContact : function(){
+		window.location.hash = "";
 	}
 });

@@ -7,7 +7,8 @@ var App = {
   init: function() {
     new App.controllers.Nav();
     new App.views.Home();
-    Backbone.history.start();
+    Backbone.history.start();	
+	document.getElementById("userForm").style.visibility = "hidden";
   },
 
   logoInit : function() {
@@ -50,3 +51,5 @@ var App = {
     ctx.stroke();
   }
 };
+
+
