@@ -4,11 +4,16 @@
   <meta charset="UTF-8" />
   <title></title>
   <link rel="stylesheet" media="screen" href="css/bootstrap.css" />
+  <link rel="stylesheet" media="screen" href="css/main.css" />
 </head>
 <body>
   <canvas id="logo" width="350" height="150">
     Un logo en canvas :p
   </canvas>
+
+  <div class="nav">
+    <a href="#">Home</a>
+  </div>
 
   <div class="container home">
     <h1>Contacts</h1>
@@ -44,12 +49,13 @@
   <script type="text/javascript" src="js/lib/bootstrap.js"></script>
   <script type="text/javascript" src="js/lib/underscore.js"></script>
   <script type="text/javascript" src="js/lib/backbone.js"></script>
+  <script type="text/javascript" src="js/lib/logocanvas.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
   <script type="text/javascript" src="js/models/user.js"></script>
   <script type="text/javascript" src="js/controllers/nav.js"></script>
   <script type="text/javascript" src="js/views/home.js"></script>
   <script type="text/javascript">
     $(App.init);
-    $(App.logoInit);
+    logoInit();
   </script>
 </body>

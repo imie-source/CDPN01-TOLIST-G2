@@ -1,10 +1,17 @@
 App.controllers.Nav = Backbone.Router.extend({
   routes: {
-  	"contact/new" : "newContact",
-  	"contact/:id" : "editContact"
+    "contact/new" : "newContact",
+    "contact/:id" : "editContact",
+    "*path" : "index"
+  },
+
+  index: function() {
+    new App.views.Home();
+    App.changePage("home");
   },
 
   showContact: function(id){
+<<<<<<< HEAD
   	console.log("Contactttt");
   	console.log(id);
 	
@@ -19,5 +26,12 @@ App.controllers.Nav = Backbone.Router.extend({
   	console.log("helloooo");
 	new App.views.Form();
 	document.getElementById("userForm").style.visibility = "visible";
+=======
+    App.changePage("form");
+  },
+
+  newContact: function() {
+    App.changePage("form");
+>>>>>>> 77bd1517b28722ff9bc55f94ccb459eacdfb4888
   }
 });
